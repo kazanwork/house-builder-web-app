@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -49,6 +48,7 @@ const ProjectFilter = ({ onFilterChange }: ProjectFilterProps) => {
   };
   
   const handlePriceChange = (value: number[]) => {
+    // Ensure we have exactly two values for the tuple
     const newPriceRange: [number, number] = [value[0], value[1]];
     setPriceDisplay({ min: newPriceRange[0], max: newPriceRange[1] });
     
@@ -61,6 +61,7 @@ const ProjectFilter = ({ onFilterChange }: ProjectFilterProps) => {
   };
   
   const handleAreaChange = (value: number[]) => {
+    // Ensure we have exactly two values for the tuple
     const newAreaRange: [number, number] = [value[0], value[1]];
     setAreaDisplay({ min: newAreaRange[0], max: newAreaRange[1] });
     
@@ -114,7 +115,7 @@ const ProjectFilter = ({ onFilterChange }: ProjectFilterProps) => {
   };
   
   const resetFilters = () => {
-    const initialFilters = {
+    const initialFilters: FilterValues = {
       priceRange: [0, 20000000],
       areaRange: [50, 300],
       floors: [],
